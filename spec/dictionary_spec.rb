@@ -12,7 +12,7 @@ describe Dictionary do
     expect(dictionary.letters).to eq({:a => ['0.', '..', '..']})
   end
 
-  it "can print letters" do
-    expect(dictionary.print_letters(a)).to eq ['0.', '..', '..']
+  it "can print braille letters" do
+    expect(dictionary.print_letters('a')).to eq ['0.', '..', '..']
   end
 end
