@@ -1,0 +1,2 @@
+class Braille
+end
