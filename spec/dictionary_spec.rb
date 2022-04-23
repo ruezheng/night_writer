@@ -1,7 +1,7 @@
 require './lib/dictionary'
 
 describe Dictionary do
-  let(:dictionary) {Dictionary.new}
+  let(:dictionary) { Dictionary.new }
 
   it "exists" do
     expect(dictionary).to be_a Dictionary

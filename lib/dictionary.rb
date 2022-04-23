@@ -34,7 +34,7 @@ class Dictionary
   end
 
   def print_braille(letter)
-    braille = "" # used .each ennumerable to return a string instead of an array
+    braille = ""
     @letters_hash.each do |key, value|
       if letter == key
         row0 = value[0]
