@@ -15,12 +15,9 @@ class Dictionary
       row0 = value[0]
       row1 = value[1]
       row2 = value[2]
-      braille = row0 + '\n' + row1 + '\n' + row2
+      braille = "#{row0}\n" + "#{row1}\n" + "#{row2}"
     end
-    p braille
-    # puts @letters_hash[:a][0]
-    # puts @letters_hash[:a][1]
-    # puts @letters_hash[:a][2]
+    braille
   end
   # value[1].delete("")
   # value[2].delete("")

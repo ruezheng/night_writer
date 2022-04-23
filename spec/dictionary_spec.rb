@@ -13,7 +13,7 @@ describe Dictionary do
   end
 
   it "can print a single braille letter" do
-    expect(dictionary.print_braille).to eq('0.\n..\n..')
+    expect(dictionary.print_braille).to eq("0.\n..\n..")
   end
 
   it "can iterate through letters_hash and print multiple braille letters" do
