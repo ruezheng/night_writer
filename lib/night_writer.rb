@@ -1,3 +1,5 @@
+require './lib/dictionary'
+
 input_file = File.open(ARGV[0], "r")
 input_message = input_file.read.delete("\n").chomp
 character_length = input_message.length

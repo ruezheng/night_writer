@@ -1,4 +1,4 @@
-class Translate
+class Translator
   attr_reader :file
 
   def initialize
