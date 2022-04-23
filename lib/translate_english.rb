@@ -1,6 +1,4 @@
-require './lib/night_writer'
-
-class EnglishToBraille
+class Translate
   attr_reader :file
 
   def initialize

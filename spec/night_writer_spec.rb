@@ -1,4 +1,4 @@
-require './lib/night_writer'
+require './lib/required_files'
 
 describe NightWriter do
   let(:night_writer) { NightWriter.new }

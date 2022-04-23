@@ -1,4 +1,3 @@
-require './lib/night_writer'
 require './lib/dictionary'
 
 describe Dictionary do
@@ -9,10 +8,11 @@ describe Dictionary do
   end
 
   it "has attributes" do
-    expect(dictionary.letters).to eq({:a => ['0.', '..', '..']})
+    expect(dictionary.letters_hash[:a][0]).to eq('0.')
+    expect(dictionary.letters_hash[:a]).to eq ['0.', '..', '..']
   end
 
   it "can print braille letters" do
-    expect(dictionary.print_letters('a')).to eq ['0.', '..', '..']
+    expect(dictionary.row1).to eq(nil)
   end
 end
