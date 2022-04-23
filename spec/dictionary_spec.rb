@@ -12,7 +12,12 @@ describe Dictionary do
     expect(dictionary.letters_hash[:a]).to eq ['0.', '..', '..']
   end
 
-  it "can print braille letters" do
-    expect(dictionary.row1).to eq(nil)
+  it "can print a single braille letter" do
+    expect(dictionary.print_braille).to eq('0.\n..\n..')
+  end
+
+  it "can iterate through letters_hash and print multiple braille letters" do
+    expect(dictionary.letters_hash[:a][0]).to eq('0.')
+    expect(dictionary.letters_hash[:a]).to eq ['0.', '..', '..']
   end
 end
