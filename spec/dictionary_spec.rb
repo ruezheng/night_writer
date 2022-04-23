@@ -17,5 +17,6 @@ describe Dictionary do
     expect(dictionary.print_braille(:b)).to eq("0.\n0.\n..")
     expect(dictionary.print_braille(:r)).to eq("0.\n00\n0.")
     expect(dictionary.print_braille(:z)).to eq("0.\n.0\n00")
+    expect(dictionary.print_braille(' ')).to eq("..\n..\n..")
   end
 end
