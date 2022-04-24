@@ -8,7 +8,5 @@ character_length = english_message.length
 braille_message = BrailleTranslator.new.translator(english_message)
 
 braille_file = File.write(ARGV[1], braille_message)
-  # braille_file.write(braille_message)
-  # braille_file.close
 
 puts "Created #{ARGV[1]} containing #{character_length} characters"

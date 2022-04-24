@@ -2,11 +2,11 @@ require "./lib/dictionary"
 
 class BrailleTranslator
 
-  def english_to_braille # method that initializes Dictionary object and calls english_to_braille hash
+  def english_to_braille # method that creates a new instance of Dictionary class and calls on english_to_braille hash with english letters as keys and braille letters as values
     Dictionary.new.english_to_braille
   end
 
-  def translate_letter(letter) # returns specific braille value of english letters as their keys
+  def translate_letter(letter) # returns specified braille value of english letters as their keys
     english_to_braille[letter]
   end
 
@@ -30,8 +30,8 @@ class BrailleTranslator
     [top_row, middle_row, bottom_row].join("\n").delete("#")
   end
 
-  def translator(input_message) # takes a string (message.txt) and returns all characters in braille form
-    english = input_message.delete("\n") # removes indents from string
+  def translator(english_message) # takes a string (message.txt) and returns all characters in braille form
+    english = english_message.delete("\n") # removes indents from string
     unformatted_braille = translate_char(english).compact # translates individual english letters and returns an array of braille character strings, and removes nil values from characters not set in the dictionary hash
     formatted_braille = formatter(unformatted_braille) # returns one long string of braille characters in formatted braille
     formatted_braille.chars.each_slice(80).map(&:join) # returns one array of braille characters in strings of 80 character length
