@@ -33,24 +33,9 @@ describe EnglishTranslator do
     end
   end
 
-  # describe ".reverse_formatter" do
-  #   it "reverses braille format and returns each letter as an element in a single array" do
-  #     expect(braille_translator.reverse_formatter("0.0.00\n..0...\n......")).to eq(["0.....", "0.0...", "00...."])
-  #     expect(braille_translator.reverse_formatter("0.\n..\n..")).to eq(["0....."])
-  #   end
-  # end
-
-
-  # describe ".split_braille_array" do
-  #   xit "can split braille array into strings of 6 characters" do
-  #     expect(english_translator.split_braille_array(["0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0..."])).to eq("hello world")
-  #   end
-  # end
-  #
-  # describe ".translate" do
-  #   xit "translates mumltiple braille letters to english" do
-  #     expect(english_translator.translate("0.0.00\n..0...\n......")).to eq("abc")
-  #     expect(english_translator.translate(["0....."])).to eq("a")
-  #   end
-  # end
+  describe ".reverse_translator" do
+    it "splits messages of more than 80 characters are over multiple lines (translates 41 braille letters into lowercase english letters" do
+      expect(braille_translator.reverse_translator( "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n..................................................................................\n..................................................................................")).to eq("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    end
+  end
 end
