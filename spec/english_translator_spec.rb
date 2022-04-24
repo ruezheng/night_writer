@@ -21,15 +21,15 @@ describe EnglishTranslator do
     end
   end
 
-  describe ".revert_braille_letters" do
+  describe ".revert_to_braille_letters" do
     it "reverts mixed characters back to braille letters" do
-      expect(english_translator.revert_braille_letters(["0.0.00", "..0...", "......"])).to eq(["0.....", "0.0...", "00...."])
+      expect(english_translator.revert_to_braille_letters(["0.0.00", "..0...", "......"])).to eq(["0.....", "0.0...", "00...."])
     end
   end
 
-  describe ".translate_braille_char" do
-    xit "translates multiple braille letters to english" do
-      expect(english_translator.translate_braille_char(["0.....", "0.0...", "00...."])).to eq("abc")
+  describe ".translate_braille" do
+    it "translates multiple braille letters to english" do
+      expect(english_translator.translate_braille(["0.....", "0.0...", "00...."])).to eq("abc")
     end
   end
 
