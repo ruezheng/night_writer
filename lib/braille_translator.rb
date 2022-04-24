@@ -17,4 +17,16 @@ class BrailleTranslator
     end
     braille_letters
   end
+
+  def formatter(braille)
+    row1 = "#"
+    row2 = "#"
+    row3 = "#"
+    braille.each do |braille_letter|
+      row1 += braille_letter[0..1]
+      row2 += braille_letter[2..3]
+      row3 += braille_letter[4..5]
+    end
+    [row1, row2, row3].join("\n").delete("#")
+  end
 end
