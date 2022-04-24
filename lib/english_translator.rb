@@ -14,8 +14,17 @@ class EnglishTranslator
     braille.join.split("\n") # => ["0.0.00", "..0...", "......"]
   end
 
-  def reformat_braille_letters(mixed_braille)
-
+  def revert_braille_letters(mixed_braille)
+    top_row = '#'
+    middle_row = '#'
+    bottom_row = '#'
+    mixed_braille.each do |element|
+      top_row += element[0..1]
+      middle_row += element[2..3]
+      bottom_row += element[4..5]
+    end
+    string = [top_row, middle_row, bottom_row].join.delete("#") # "0.....0.0...00...."
+    string.chars.each_slice(6).map(&:join) # ["0.....", "0.0...", "00...."]
   end
 
   def translate_braille_char(braille) # iterates through each braille character element in array and returns english values

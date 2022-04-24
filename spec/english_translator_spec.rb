@@ -21,9 +21,9 @@ describe EnglishTranslator do
     end
   end
 
-  describe ".reformat_braille_letters" do
-    it "reformats characters into braille letters" do
-      expect(english_translator.reformat_braille_letters(["0.0.00", "..0...", "......"])).to eq(["0.....", "0.0...", "00...."])
+  describe ".revert_braille_letters" do
+    it "reverts mixed characters back to braille letters" do
+      expect(english_translator.revert_braille_letters(["0.0.00", "..0...", "......"])).to eq(["0.....", "0.0...", "00...."])
     end
   end
 
