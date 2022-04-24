@@ -17,13 +17,13 @@ describe EnglishTranslator do
 
   describe ".split_braille_array" do
     it "removes `\n` and splits every 6 characters into a seperate string" do
-      expect(english_translator.split_braille_array(["0.0.00\n..0...\n......"])).to eq(["0.0.00", "..0...", "......"])
+      expect(english_translator.split_braille_array(["0.0.00\n..0...\n......"])).to eq(["0.0.00", "..0...", "......"]) # => "abe"
     end
   end
 
-  describe ".split_braille_array" do
-    it "translates multiple braille letters to english" do
-      expect(english_translator.split_braille_array(["0.0.00\n..0...\n......"])).to eq(["0.0.00", "..0...", "......"])
+  describe ".reformat_braille_letters" do
+    it "reformats characters into braille letters" do
+      expect(english_translator.reformat_braille_letters(["0.0.00", "..0...", "......"])).to eq(["0.....", "0.0...", "00...."])
     end
   end
 
