@@ -19,6 +19,7 @@ describe BrailleTranslator do
     it "translates mumltiple english letters to braille" do
       expect(braille_translator.translate_char("abc")).to eq(["0.....", "0.0...", "00...."])
       expect(braille_translator.translate_char("a")).to eq(["0....."])
+      expect(braille_translator.translate_char("abcdefghijklmnopqrstuvwxyz ")).to eq(["0.....", "0.0...", "00....", "00.0..", "0..0..", "000...", "0000..", "0.00..", ".00...", ".000..", "0...0.", "0.0.0.", "00..0.", "00.00.", "0..00.", "000.0.", "00000.", "0.000.", ".00.0.", ".0000.", "0...00", "0.0.00", ".000.0", "00..00", "00.000", "0..000", "......"])
     end
   end
 
@@ -30,16 +31,8 @@ describe BrailleTranslator do
   end
 
   describe ".translator" do
-    it "returns one array of braille characters translated from english in strings of 80 character length" do
-      expect(braille_translator.translator("zero is a beautiful number not because it is round and cute rather it is the ultimate foundation to build anything upon")).to eq( ["0.0.0.0....0.0..0...0.0.0.0..0.0000.0...000.000.0.0...000..0..0.0.000.0..00....0",
-       ".0...0.0..0.0.0.0000..0.0000..000..00...0.0..00.0.0....0.0...0.0...00.0...0.0..0",
-       ".0000..00...000.0.00000..0.00.00...00...0.0..00.00..0.0000.00..00000..0.000.00\n.",
-       "0.000.0..0.0.......0..0....000.0...0....0....0..000...0.000..0..0......0..0..0.0",
-       "0..0.0...00.0...0.0.....0.0......00.0..00..0000.000..0.00..0.0...0000.0....0.000",
-       ".....00.0..0..0...0.0..000..0.0..00.0..0...0.0..0.....0.000000..000....0..0.0\n00",
-       "..0.0.....0.............000.....000...0.000.....0...0.0.0...........000.......0.",
-       "....0...0.0.000.......0.......000.....0...0.....0.....0.....0...0.......000.0...",
-       "0...0.......0.000.....0...0.0...0.0.....00..0.......0.000.....0.....000.0.0."])
+    it "translates 41 english lowercase letters (82 positions wide)" do
+      expect(braille_translator.translator("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")).to eq( ["0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.", "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.", "0.\n.....................................", "........................................", ".....\n..................................", "........................................", "........"])
     end
   end
 end
