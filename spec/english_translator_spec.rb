@@ -17,7 +17,7 @@ describe EnglishTranslator do
 
   describe ".split_braille_array" do
     it "removes `\n` and splits every 6 characters into a seperate string" do
-      expect(english_translator.split_braille_array(["0.0.00\n..0...\n......"])).to eq(["0.0.00", "..0...", "......"]) # => "abe"
+      expect(english_translator.split_braille_array("0.0.00\n..0...\n......")).to eq(["0.0.00", "..0...", "......"]) # => "abe"
     end
   end
 
@@ -34,8 +34,12 @@ describe EnglishTranslator do
   end
 
   describe ".reverse_translator" do
-    it "splits messages of more than 80 characters are over multiple lines (translates 41 braille letters into lowercase english letters" do
-      expect(braille_translator.reverse_translator( "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n..................................................................................\n..................................................................................")).to eq("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    it "translates multiple braille letters to english" do
+      expect(english_translator.translator("abc")).to eq("0.0.00\n..0...\n......")
+    end
+
+    xit "splits messages of more than 80 characters are over multiple lines (translates 41 braille letters into lowercase english letters" do
+      expect(english_translator.reverse_translator( "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n..................................................................................\n..................................................................................")).to eq("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     end
   end
 end
