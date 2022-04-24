@@ -10,9 +10,8 @@ class EnglishTranslator
     braille_to_english[letter]
   end
 
-  def split_braille_array(braille)
-    require "pry"; binding.pry
-
+  def split_braille_array(braille) # splits every 6 characters into a seperate string
+    braille.join.split("\n") # => ["0.0.00", "..0...", "......"]
   end
 
   def translate_braille_char(braille) # iterates through each braille character element in array and returns english values

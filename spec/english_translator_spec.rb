@@ -16,11 +16,17 @@ describe EnglishTranslator do
   end
 
   describe ".split_braille_array" do
-    it "translates multiple braille letters to english" do
-      expect(english_translator.split_braille_array(["0.0.00\n..0...\n......"])).to eq("abc")
+    it "removes `\n` and splits every 6 characters into a seperate string" do
+      expect(english_translator.split_braille_array(["0.0.00\n..0...\n......"])).to eq(["0.0.00", "..0...", "......"])
     end
-
   end
+
+  describe ".split_braille_array" do
+    it "translates multiple braille letters to english" do
+      expect(english_translator.split_braille_array(["0.0.00\n..0...\n......"])).to eq(["0.0.00", "..0...", "......"])
+    end
+  end
+
   describe ".translate_braille_char" do
     xit "translates multiple braille letters to english" do
       expect(english_translator.translate_braille_char(["0.....", "0.0...", "00...."])).to eq("abc")
