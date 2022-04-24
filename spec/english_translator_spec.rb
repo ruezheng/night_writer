@@ -15,13 +15,19 @@ describe EnglishTranslator do
     end
   end
 
-  describe ".reverse_formatter" do
-    it "reverses braille format and returns each letter as an element in a single array" do
-      expect(braille_translator.reverse_formatter("0.0.00\n..0...\n......")).to eq(["0.....", "0.0...", "00...."])
-      expect(braille_translator.reverse_formatter("0.\n..\n..")).to eq(["0....."])
+  describe ".translate_braille_char" do
+    it "translates multiple braille letters to english" do
+      expect(braille_translator.translate_char(["0.....", "0.0...", "00...."])).to eq("abc")
     end
   end
-  
+
+  # describe ".reverse_formatter" do
+  #   it "reverses braille format and returns each letter as an element in a single array" do
+  #     expect(braille_translator.reverse_formatter("0.0.00\n..0...\n......")).to eq(["0.....", "0.0...", "00...."])
+  #     expect(braille_translator.reverse_formatter("0.\n..\n..")).to eq(["0....."])
+  #   end
+  # end
+
 
   # describe ".split_braille_array" do
   #   xit "can split braille array into strings of 6 characters" do

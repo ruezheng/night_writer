@@ -10,17 +10,21 @@ class EnglishTranslator
     braille_to_english[letter]
   end
 
-  def reverse_formatter(braille) # reverses braille format and returns each letter as an element in a single array
-    top_row = "#"
-    middle_row = "#"
-    bottom_row = "#" # placeholder b/c it wouldn't let me add to an empty string
-    braille.each do |braille_letter|
-      top_row += braille_letter[0..1]
-      middle_row += braille_letter[2..3]
-      bottom_row += braille_letter[4..5]
-    end
-    [top_row, middle_row, bottom_row].join("\n").delete("#")
+  def translate_braille_char(braille)
+
   end
+
+  # def reverse_formatter(braille) # reverses braille format and returns each letter as an element in a single array
+  #   top_row = "#"
+  #   middle_row = "#"
+  #   bottom_row = "#" # placeholder b/c it wouldn't let me add to an empty string
+  #   braille.each do |braille_letter|
+  #     top_row += braille_letter[0..1]
+  #     middle_row += braille_letter[2..3]
+  #     bottom_row += braille_letter[4..5]
+  #   end
+  #   [top_row, middle_row, bottom_row].join("\n").delete("#")
+  # end
 
 
   # def split_braille_array(braille)
