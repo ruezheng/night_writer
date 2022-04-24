@@ -1,6 +1,6 @@
 require "./lib/dictionary"
 
-class Translator
+class EnglishTranslator
   def english_to_braille
     Dictionary.new.english_to_braille
   end

@@ -1,7 +1,7 @@
 require "./lib/braille_translator"
 
-describe BrailleTranslator do
-  let(:braille_translator) { BrailleTranslator.new }
+describe Translator do
+  let(:braille_translator) { Translator.new }
 
   describe '.translate_letter' do
     it "can print a specified braille letter from a-z" do
