@@ -29,4 +29,10 @@ class BrailleTranslator
     end
     [row1, row2, row3].join("\n").delete("#")
   end
+
+  def translator(input_message)
+    english = input_message.delete("\n")
+    unformatted_braille = translate(english)
+    formatter(unformatted_braille)
+  end
 end
