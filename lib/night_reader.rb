@@ -3,7 +3,7 @@ require "./lib/braille_translator"
 
 braille_file = File.open(ARGV[0], "r")
 braille_message = braille_file.readline
-character_length = braille_message.length
+character_length = ( braille_message.length / 6 )
 
 english_message = BrailleTranslator.new.translator(braille_message)
 
