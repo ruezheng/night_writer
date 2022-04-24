@@ -1,6 +1,6 @@
 require "./lib/dictionary"
 
-class Translator
+class BrailleTranslator
   def english_to_braille
     Dictionary.new.english_to_braille
   end
@@ -10,21 +10,21 @@ class Translator
   end
 
   def translate(english)
-    braille_char = []
+    braille_letter = []
     english.chars.each do |letter|
-      braille_char << translate_letter(letter)
+      braille_letter << translate_letter(letter)
     end
-    braille_char
+    braille_letter
   end
 
   def formatter(braille)
     row1 = "#"
     row2 = "#"
     row3 = "#"
-    braille.each do |braille_char|
-      row1 += braille_char[0..1]
-      row2 += braille_char[2..3]
-      row3 += braille_char[4..5]
+    braille.each do |braille_letter|
+      row1 += braille_letter[0..1]
+      row2 += braille_letter[2..3]
+      row3 += braille_letter[4..5]
     end
     [row1, row2, row3].join("\n").delete("#")
   end

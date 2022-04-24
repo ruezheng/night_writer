@@ -17,13 +17,13 @@ describe Dictionary do
     end
   end
 
-  describe ".braile_to_english" do
+  describe ".braille_to_english" do
     it "turns braille into english letters" do
-      expect(dictionary.braile_to_english["0....."]).to eq("a")
-      expect(dictionary.braile_to_english["0.0..."]).to eq("b")
-      expect(dictionary.braile_to_english["00...."]).to eq("c")
-      expect(dictionary.braile_to_english["0..000"]).to eq("z")
-      expect(dictionary.braile_to_english["......"]).to eq(" ")
+      expect(dictionary.braille_to_english["0....."]).to eq("a")
+      expect(dictionary.braille_to_english["0.0..."]).to eq("b")
+      expect(dictionary.braille_to_english["00...."]).to eq("c")
+      expect(dictionary.braille_to_english["0..000"]).to eq("z")
+      expect(dictionary.braille_to_english["......"]).to eq(" ")
     end
   end
 end

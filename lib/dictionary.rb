@@ -1,6 +1,6 @@
 class Dictionary
   attr_reader :english_to_braille,
-              :braile_to_english
+              :braille_to_english
 
   def initialize
     @english_to_braille = {
@@ -32,6 +32,6 @@ class Dictionary
       "z" => "0..000",
       " " => "......"
     }
-    @braile_to_english = english_to_braille.invert
+    @braille_to_english = english_to_braille.invert
   end
 end
