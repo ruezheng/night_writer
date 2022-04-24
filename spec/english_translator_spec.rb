@@ -21,8 +21,7 @@ describe EnglishTranslator do
       expect(braille_translator.reverse_formatter("0.\n..\n..")).to eq(["0....."])
     end
   end
-  # git commit -m "Test: EnglishTranslator.reverse_formatter reverses braille format and returns each letter as an element in a single array"
-
+  
 
   # describe ".split_braille_array" do
   #   xit "can split braille array into strings of 6 characters" do

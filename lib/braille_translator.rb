@@ -34,6 +34,6 @@ class BrailleTranslator
     english = english_message.delete("\n") # removes indents from string
     unformatted_braille = translate_char(english).compact # translates individual english letters and returns an array of braille character strings, and removes nil values from characters not set in the dictionary hash
     formatted_braille = formatter(unformatted_braille) # returns one long string of braille characters in formatted braille
-    formatted_braille.chars.each_slice(80).map(&:join) # returns one array of braille characters in strings of 80 character length
+    formatted_braille.chars.each_slice(40).map(&:join) # returns one array of braille characters in strings of 80 character length
   end
 end

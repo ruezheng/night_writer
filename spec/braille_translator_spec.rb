@@ -31,7 +31,7 @@ describe BrailleTranslator do
   end
 
   describe ".translator" do
-    it "translates 41 english lowercase letters (82 positions wide)" do
+    it "messages of more than 80 characters are split over multiple lines (translates 41 english lowercase letters, 82 characters)" do
       expect(braille_translator.translator("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")).to eq( ["0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.", "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.", "0.\n.....................................", "........................................", ".....\n..................................", "........................................", "........"])
     end
   end
