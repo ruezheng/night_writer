@@ -10,8 +10,17 @@ class EnglishTranslator
     braille_to_english[letter]
   end
 
-  def translate_braille_char(braille)
+  def split_braille_array(braille)
+    require "pry"; binding.pry
 
+  end
+
+  def translate_braille_char(braille) # iterates through each braille character element in array and returns english values
+    english_letters = []
+    braille.each do |braille_letter|
+      english_letters << translate_letter(braille_letter)
+    end
+    english_letters
   end
 
   # def reverse_formatter(braille) # reverses braille format and returns each letter as an element in a single array
