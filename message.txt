@@ -1,1 +1,1 @@
-Add any text you would like to transform into braille here.
+type a message here to translate into braille
