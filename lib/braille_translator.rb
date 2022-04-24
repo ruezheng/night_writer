@@ -33,6 +33,7 @@ class BrailleTranslator
   def translator(input_message)
     english = input_message.delete("\n")
     unformatted_braille = translate(english)
-    formatter(unformatted_braille)
+    formatted_braille = formatter(unformatted_braille)
+    formatted_braille.chars.each_slice(80).map(&:join)
   end
 end
