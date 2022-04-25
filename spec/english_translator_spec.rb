@@ -43,7 +43,7 @@ describe EnglishTranslator do
     end
 
 
-    xit "splits messages of more than 80 characters are over multiple lines (translates 41 braille letters into lowercase english letters" do
+    it "splits messages of more than 80 characters are over multiple lines (translates 41 braille letters into lowercase english letters" do
       expect(english_translator.reverse_translator("0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n..................................................................................\n..................................................................................")).to eq("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     end
   end
