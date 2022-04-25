@@ -25,6 +25,12 @@ describe EnglishTranslator do
     end
   end
 
+  describe ".nested_braille_arr" do
+    it "turns array of strings into nested arrays" do
+      expect(english_translator.nested_braille_arr(["0.000....0.00....00.0.0.0.", ".0.0.0..0000.0..000000.0.0", "0.0.....0..00...0...0....."])).to eq([["0.000....0.00....00.0.0.0."], [".0.0.0..0000.0..000000.0.0"], ["0.0.....0..00...0...0....."]]) # => "abc"
+    end
+  end
+
   describe ".revert_to_braille_letters" do
     it "reverts mixed characters back to braille letters" do
       expect(english_translator.revert_to_braille_letters(["0.0.00", "..0...", "......"])).to eq(["0.....", "0.0...", "00...."])
