@@ -11,10 +11,18 @@ class EnglishTranslator
   end
 
   def split_braille_array(braille) # splits every 6 characters into a seperate string
-    mixed_braille_arr = []
-    mixed_braille_arr << braille
-    mixed_braille_arr.join.split("\n") # => ["0.0.00", "..0...", "......"]
+    braille_arr = []
+    braille_arr << braille
+    string = braille_arr.join.delete("\n") # "0.0.00..0........."
+    string.scan(/....../) # => ["0.0.00", "..0...", "......"]
   end
+
+  # def split_braille_array(braille) # splits every 6 characters into a seperate string
+  #   formatted_braille_arr = []
+  #   formatted_braille_arr << braille
+  #   joined = formatted_braille_arr.join.split("\n") # => ["0.0.00", "..0...", "......"]
+  # end
+  #   # braille.join.split("\n")
 
   def revert_to_braille_letters(mixed_braille) # returns an array of braille letters in the correct order
     top_row = '#'
@@ -25,7 +33,7 @@ class EnglishTranslator
       middle_row += element[2..3]
       bottom_row += element[4..5]
     end
-    string = [top_row, middle_row, bottom_row].join.delete("#") # "0.....0.0...00...."
+    string = [top_row, middle_row, bottom_row].join.delete("#") # => "0.....0.0...00...."
     string.chars.each_slice(6).map(&:join) # ["0.....", "0.0...", "00...."]
   end
 
@@ -38,9 +46,10 @@ class EnglishTranslator
   end
 
   def reverse_translator(braille_message)
+    require "pry"; binding.pry
     mixed_braille = split_braille_array(braille_message)
     braille = revert_to_braille_letters(mixed_braille)
     english = translate_braille(braille)
-    english.chars.each_slice(40).map(&:join)
+    english.chars.each_slice(40).map(&:join).join
   end
 end
