@@ -1,5 +1,5 @@
 require "./lib/dictionary"
-require "./lib/braille_translator"
+require "./lib/english_translator"
 
 braille_file = File.open(ARGV[0], "r")
 braille_message = braille_file.read
