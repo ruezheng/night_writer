@@ -32,8 +32,8 @@ describe EnglishTranslator do
   # end
 
   describe ".revert_to_braille_letters" do
-    xit "reverts mixed characters back to braille letters" do
-      expect(english_translator.revert_to_braille_letters(["0.0.00", "..0...", "......"])).to eq(["0.....", "0.0...", "00...."])
+    it "reverts mixed characters back to braille letters" do
+      expect(english_translator.revert_to_braille_letters(["0.0.00", "..0...", "......"])).to eq("abc")
     end
 
     it "reverts nested arrays of mixed braille characters back to braille letters" do
@@ -48,11 +48,6 @@ describe EnglishTranslator do
   end
 
   describe ".reverse_translator" do
-    xit "translates multiple braille letters to english" do
-      expect(english_translator.reverse_translator("0.0.00\n..0...\n......")).to eq("abc")
-    end
-
-
     it "splits messages of more than 80 characters are over multiple lines (translates 41 braille letters into lowercase english letters" do
       expect(english_translator.reverse_translator("0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n..................................................................................\n..................................................................................")).to eq("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     end
