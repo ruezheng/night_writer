@@ -21,6 +21,10 @@ describe BrailleTranslator do
       expect(braille_translator.translate_char("a")).to eq(["0....."])
       expect(braille_translator.translate_char("abcdefghijklmnopqrstuvwxyz ")).to eq(["0.....", "0.0...", "00....", "00.0..", "0..0..", "000...", "0000..", "0.00..", ".00...", ".000..", "0...0.", "0.0.0.", "00..0.", "00.00.", "0..00.", "000.0.", "00000.", "0.000.", ".00.0.", ".0000.", "0...00", "0.0.00", ".000.0", "00..00", "00.000", "0..000", "......"])
     end
+
+    it "translates multiple english words to unformatted braille" do
+      expect(braille_translator.translate_char("one two three")).to eq(["0..00.", "00.00.", "0..0..", "......", ".0000.", ".000.0", "0..00.", "......", ".0000.", "0.00..", "0.000.", "0..0..", "0..0.."])
+    end
   end
 
   describe ".formatter" do
