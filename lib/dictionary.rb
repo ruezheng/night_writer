@@ -30,7 +30,9 @@ class Dictionary
       "x" => "00..00",
       "y" => "00.000",
       "z" => "0..000",
-      " " => "......"
+      " " => "......",
+      "." => "..00.0",
+      "," => "..0..."
     }
     @braille_to_english = english_to_braille.invert
   end

@@ -9,7 +9,7 @@ describe Dictionary do
     expect(dictionary).to be_a(Dictionary)
   end
 
-  describe ".english_to_braille" do
+  describe "#english_to_braille" do
     it "turns english letters into braille" do
       expect(dictionary.english_to_braille["a"]).to eq("0.....")
       expect(dictionary.english_to_braille["b"]).to eq("0.0...")
@@ -19,7 +19,7 @@ describe Dictionary do
     end
   end
 
-  describe ".braille_to_english" do
+  describe "#braille_to_english" do
     it "turns braille into english letters" do
       expect(dictionary.braille_to_english["0....."]).to eq("a")
       expect(dictionary.braille_to_english["0.0..."]).to eq("b")
