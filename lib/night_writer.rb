@@ -2,7 +2,7 @@ require "./lib/dictionary"
 require "./lib/braille_translator"
 
 english_file = File.open(ARGV[0], "r")
-english_message = english_file.readline
+english_message = english_file.read
 character_length = english_message.length
 
 braille_message = BrailleTranslator.new.translator(english_message)

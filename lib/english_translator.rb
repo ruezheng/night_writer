@@ -11,20 +11,11 @@ class EnglishTranslator
   end
 
   def split_braille_array(braille) # splits every 6 characters into a seperate string
-    braille.join.split("\n") # => ["0.0.00", "..0...", "......"]
-  end
-
-  def revert_to_braille_letters(mixed_braille) # returns an array of braille letters in the correct order
-    top_row = '#'
-    middle_row = '#'
-    bottom_row = '#'
-    mixed_braille.each do |element|
-      top_row += element[0..1]
-      middle_row += element[2..3]
-      bottom_row += element[4..5]
-    end
-    string = [top_row, middle_row, bottom_row].join.delete("#") # "0.....0.0...00...."
-    string.chars.each_slice(6).map(&:join) # ["0.....", "0.0...", "00...."]
+    braille_arr = []
+    braille_arr << braille
+    string = braille_arr.join.delete("\n") # "0.0.00..0........."
+    break_length = ( string.length / 3 )
+    string.chars.each_slice(break_length).map(&:join) # => ["0.0.00", "..0...", "......"]
   end
 
   def translate_braille(braille) # iterates through each braille character element in array and returns english values
@@ -35,25 +26,24 @@ class EnglishTranslator
     english_letters.join
   end
 
-  # def reverse_formatter(braille) # reverses braille format and returns each letter as an element in a single array
-  #   top_row = "#"
-  #   middle_row = "#"
-  #   bottom_row = "#" # placeholder b/c it wouldn't let me add to an empty string
-  #   braille.each do |braille_letter|
-  #     top_row += braille_letter[0..1]
-  #     middle_row += braille_letter[2..3]
-  #     bottom_row += braille_letter[4..5]
-  #   end
-  #   [top_row, middle_row, bottom_row].join("\n").delete("#")
-  # end
+  def revert_to_braille_letters(braille) # returns an array of braille letters in the correct order then translates letters to english
+    braille_line = ""
+    braille.each_slice(3) do |braille_row|
+      arr = []
+      top_row = braille_row[0].chars.each_slice(2).map(&:join)
+      middle_row = braille_row[1].chars.each_slice(2).map(&:join)
+      bottom_row = braille_row[2].chars.each_slice(2).map(&:join)
+      top_row.each_with_index do |two_chars, index|
+        arr << [two_chars, middle_row[index], bottom_row[index]]
+      end
+      braille_line += translate_braille(arr.map(&:join))
+    end
+    braille_line
+  end
 
-
-  # def split_braille_array(braille)
-  #   require "pry"; binding.pry
-  # end
-  #
-  # def translator(braille_message)
-  #   english_message = translate(braille_message)
-  #   english_message.chars.each_slice(80).map(&:join)
-  # end
+  def reverse_translator(braille_message)
+    mixed_braille = split_braille_array(braille_message)
+    english = revert_to_braille_letters(mixed_braille)
+    english.chars.each_slice(40).map(&:join).join
+  end
 end
