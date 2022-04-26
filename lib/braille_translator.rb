@@ -2,15 +2,15 @@ require "./lib/dictionary"
 
 class BrailleTranslator
 
-  def english_to_braille # method that creates a new instance of Dictionary class and calls on english_to_braille hash with english letters as keys and braille letters as values
+  def english_to_braille
     Dictionary.new.english_to_braille
   end
 
-  def translate_letter(letter) # returns specified braille value of english letters as their keys
+  def translate_letter(letter)
     english_to_braille[letter]
   end
 
-  def translate_english(english) # iterates through each english character in the attribute and returns braille values in an array of strings for each english letter key => ["0.....", "0.0...", "00...."]
+  def translate_english(english)
     braille_letter = []
     english.chars.each do |letter|
       braille_letter << translate_letter(letter)
@@ -18,10 +18,10 @@ class BrailleTranslator
     braille_letter
   end
 
-  def formatter(braille) # formats each element of braille array into one string with reformatted braille letters joined with indents to make 2 columns of 3 row characters
+  def formatter(braille)
     top_row = ""
     middle_row = ""
-    bottom_row = "" # placeholder b/c it wouldn't let me add to an empty string
+    bottom_row = ""
     braille.each do |braille_letter|
       top_row += braille_letter[0..1]
       middle_row += braille_letter[2..3]
@@ -30,10 +30,10 @@ class BrailleTranslator
     [top_row, middle_row, bottom_row].join("\n")
   end
 
-  def translator(english_message) # takes a string (message.txt) and returns all characters in braille form
-    english = english_message.delete("\n") # removes indents from string
-    unformatted_braille = translate_english(english).compact # translates individual english letters and returns an array of braille character strings, and removes nil values from characters not set in the dictionary hash
-    formatted_braille = formatter(unformatted_braille) # returns one long string of braille characters in formatted braille
-    formatted_braille.chars.each_slice(80).map(&:join).join("\n") # returns a string of braille characters in strings of 80 character length
+  def translator(english_message)
+    english = english_message.delete("\n")
+    unformatted_braille = translate_english(english).compact
+    formatted_braille = formatter(unformatted_braille)
+    formatted_braille.chars.each_slice(80).map(&:join).join("\n")
   end
 end
