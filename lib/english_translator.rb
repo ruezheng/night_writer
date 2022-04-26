@@ -2,23 +2,23 @@ require "./lib/dictionary"
 
 class EnglishTranslator
 
-  def braille_to_english  # method that creates a new instance of Dictionary class and calls on the braille_to_english hash with braille keys and english letters as values
+  def braille_to_english
     Dictionary.new.braille_to_english
   end
 
-  def translate_letter(letter) # returns specified english letter value of braille letter keys
+  def translate_letter(letter)
     braille_to_english[letter]
   end
 
-  def split_braille_array(braille) # splits every 6 characters into a seperate string
+  def split_braille_array(braille)
     braille_arr = []
     braille_arr << braille
-    string = braille_arr.join.delete("\n") # "0.0.00..0........."
+    string = braille_arr.join.delete("\n")
     break_length = ( string.length / 3 )
-    string.chars.each_slice(break_length).map(&:join) # => ["0.0.00", "..0...", "......"]
+    string.chars.each_slice(break_length).map(&:join)
   end
 
-  def translate_braille(braille) # iterates through each braille character element in array and returns english values
+  def translate_braille(braille)
     english_letters = []
     braille.each do |braille_letter|
       english_letters << translate_letter(braille_letter)
@@ -26,7 +26,7 @@ class EnglishTranslator
     english_letters.join
   end
 
-  def revert_to_braille_letters(braille) # returns an array of braille letters in the correct order then translates letters to english
+  def revert_to_braille_letters(braille)
     braille_line = ""
     braille.each_slice(3) do |braille_row|
       arr = []
