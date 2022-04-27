@@ -11,9 +11,7 @@ class EnglishTranslator
   end
 
   def split_braille_array(braille)
-    braille_arr = []
-    braille_arr << braille
-    string = braille_arr.join.delete("\n")
+    string = braille.delete("\n")
     break_length = ( string.length / 3 )
     string.chars.each_slice(break_length).map(&:join)
   end
