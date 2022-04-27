@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-04-27T13:00:26-06:00">2022-04-27T13:00:26-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-04-27T13:04:47-06:00">2022-04-27T13:04:47-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -1381,7 +1381,7 @@
 
             
 
-            <code class="ruby">  def revert_to_braille_letters(braille)</code>
+            <code class="ruby">  def english_translator(braille)</code>
           </li>
         </div>
       
@@ -1568,7 +1568,7 @@
 
             
 
-            <code class="ruby">    english = revert_to_braille_letters(braille)</code>
+            <code class="ruby">    english = english_translator(braille)</code>
           </li>
         </div>
       
@@ -2312,7 +2312,7 @@
 
             
 
-            <code class="ruby">  describe &quot;#revert_to_braille_letters&quot; do</code>
+            <code class="ruby">  describe &quot;#english_translator&quot; do</code>
           </li>
         </div>
       
@@ -2334,7 +2334,7 @@
 
             
 
-            <code class="ruby">      expect(english_translator.revert_to_braille_letters([&quot;0.0.00&quot;, &quot;..0...&quot;, &quot;......&quot;])).to eq(&quot;abc&quot;)</code>
+            <code class="ruby">      expect(english_translator.english_translator([&quot;0.0.00&quot;, &quot;..0...&quot;, &quot;......&quot;])).to eq(&quot;abc&quot;)</code>
           </li>
         </div>
       
@@ -2378,7 +2378,7 @@
 
             
 
-            <code class="ruby">      expect(english_translator.revert_to_braille_letters([&quot;0.000....0.00....00.0.0.0.&quot;, &quot;.0.0.0..0000.0..000000.0.0&quot;, &quot;0.0.....0..00...0...0.....&quot;])).to eq(&quot;one two three&quot;)</code>
+            <code class="ruby">      expect(english_translator.english_translator([&quot;0.000....0.00....00.0.0.0.&quot;, &quot;.0.0.0..0000.0..000000.0.0&quot;, &quot;0.0.....0..00...0...0.....&quot;])).to eq(&quot;one two three&quot;)</code>
           </li>
         </div>
       
