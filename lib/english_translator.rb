@@ -25,7 +25,7 @@ class EnglishTranslator
   end
 
   def revert_to_braille_letters(braille)
-    braille_line = ""
+    english = ""
     braille.each_slice(3) do |braille_row|
       arr = []
       top_row = braille_row[0].chars.each_slice(2).map(&:join)
@@ -34,9 +34,9 @@ class EnglishTranslator
       top_row.each_with_index do |two_chars, index|
         arr << [two_chars, middle_row[index], bottom_row[index]]
       end
-      braille_line += translate_braille(arr.map(&:join))
+      english += translate_braille(arr.map(&:join))
     end
-    braille_line
+    english
   end
 
   def reverse_translator(braille_message)
