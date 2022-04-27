@@ -40,8 +40,8 @@ class EnglishTranslator
   end
 
   def reverse_translator(braille_message)
-    mixed_braille = split_braille_array(braille_message)
-    english = revert_to_braille_letters(mixed_braille)
+    braille = split_braille_array(braille_message)
+    english = revert_to_braille_letters(braille)
     english.chars.each_slice(40).map(&:join).join
   end
 end
